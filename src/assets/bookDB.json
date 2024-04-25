@@ -1,0 +1,18 @@
+[
+  {
+    "bookid": 1,
+    "bookname": "C++",
+    "author": "abc"
+  }
+  ,
+  {
+    "bookid": 2,
+    "bookname": "python",
+    "author": "zyx"
+  },
+  {
+    "bookid": 3,
+    "bookname": "Java",
+    "author": "pqr"
+  }
+]

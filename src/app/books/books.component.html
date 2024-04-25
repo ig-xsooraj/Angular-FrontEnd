@@ -1,0 +1,35 @@
+
+
+
+<div class="container">
+    <h1 style="text-align: center;">Books List!</h1>
+    <div class="serachbar">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th class="opertion">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.bookid}}</td>
+                <td>{{book.bookname}}</td>
+                <td>{{book.author}}</td>
+                <td class="opertion"><button class="btn btn-primary">Add</button> <button class="btn btn-danger">remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
