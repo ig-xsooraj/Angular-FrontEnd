@@ -1,5 +1,5 @@
 export class Books {
-  bookid: number | undefined;
-  bookname: String | undefined;
-  author: String | undefined;
+  bookid!: number;
+  bookname!: String;
+  author!: String;
 }

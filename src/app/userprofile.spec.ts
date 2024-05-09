@@ -1,4 +1,4 @@
-import { UserProfile } from './user-profile';
+import { UserProfile } from './userprofile';
 
 describe('UserProfile', () => {
   it('should create an instance', () => {

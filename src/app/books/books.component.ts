@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Books } from '../books';
-import { BookService } from '../book.service';
+import { BookService } from '../books.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -8,28 +9,62 @@ import { BookService } from '../book.service';
   styleUrl: './books.component.css',
 })
 export class BooksComponent implements OnInit {
-  books: Books[] | undefined;
-  constructor(private bookservice: BookService) {}
-  ngOnInit(): void {
-    this.getBookList();
+  books: Books[] = [];
+  data: any;
+  id: any;
+  searchText: string = '';
 
-    // Static data to displayed on the UI;
+
+  filteredData: Books[] = this.books;
+
+  
+  constructor(
+    private bookservice: BookService,
+    private aroute: ActivatedRoute
+  ) { }
+  
+
+  ngOnInit(): void {
+    this.id = this.aroute.snapshot.params['id'];
+    this.getBookList();
+    //
     this.books = [
-      { bookid: 1, bookname: 'c++', author: 'abc' },
-      { bookid: 2, bookname: 'pyhton', author: 'zyx' },
+      {
+        bookid: 1,
+        bookname: 'C++',
+        author: 'c++',
+      },
     ];
+    this.filteredData = this.books;
   }
 
   private getBookList() {
     try {
-      this.bookservice.getBookList().subscribe(data => {
+      this.bookservice.getBookList().subscribe((data) => {
         this.books = data;
-      })
-    
+      });
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
+  }
+  delete(id: number) {
+    alert('book removed successfully');
+    this.bookservice.deleteBook(id).subscribe((data) => {
+      console.log(this.data);
+      this.getBookList();
+    });
+
+    throw new Error('Method not implemented.');
+  }
+
+  search() {
+    try {
+      this.filteredData = this.books.filter((item) =>
+        item.bookname.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+      alert('seraching your books');
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
 }
-  
-

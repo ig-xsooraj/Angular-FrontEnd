@@ -1,24 +1,18 @@
 <div class="container">
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="fs-4">Library Management System</span>
+      <h1 class="fs-4">Library Management System</h1>
     </a>
 
     <ul class="nav nav-pills">
-      <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">User Profile</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Book List</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Fine</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/login" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="/bookslist" class="nav-link">Book List</a></li>
+      <!-- <li class="nav-item"><a href="/userprofile" class="nav-link">User Profile</a></li> -->
+      <li class="nav-item"><a href="/checkout" class="nav-link">Check Out</a></li>
+      <li class="nav-item"><a href="/finepage" class="nav-link">Book Fine</a></li>
+      
     </ul>
   </header>
-</div>
-<div class="container">
-  <app-login-page></app-login-page>
-  <!-- <app-books></app-books> -->
 </div>
 
 <router-outlet />
