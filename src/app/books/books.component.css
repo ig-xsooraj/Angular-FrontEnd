@@ -1,13 +1,14 @@
 .d-flex {
-   
     width: 80%;
 }
-.navbar>.container-fluid{
+
+.navbar>.container-fluid {
     display: flex;
     justify-content: center;
 }
 
-.opertion{
+.opertion {
+    width: 100%;
     display: flex;
-        justify-content: space-evenly;
+    justify-content: center;
 }

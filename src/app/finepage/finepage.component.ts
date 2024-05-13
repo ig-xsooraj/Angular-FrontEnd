@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Checkout } from '../checkout';
-import { ActivatedRoute } from '@angular/router';
+import { BookService } from '../books.service';
+import { Books } from '../books';
 
 @Component({
   selector: 'app-finepage',
@@ -8,12 +9,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './finepage.component.css',
 })
 export class FinepageComponent implements OnInit {
-  checkout: Checkout[] = [];
+  check: Checkout[] = [];
   id: number = 0;
+  serial: string = '';
+  books:Books[] = [];
 
-  constructor(private aroute:ActivatedRoute) {}
+  constructor(private bookservices: BookService) {}
 
   ngOnInit(): void {
-    this.id = this.aroute.snapshot.params['id'];
+    this.getfine();
+  }
+
+  getfine() {
+    this.bookservices.fineAmount(this.id, this.serial).subscribe((data) => {
+      this.check = data as unknown as Checkout[];
+    });
+  }
+
+  getBookList() {
+    this.bookservices.getBookListSource().subscribe((data) => {
+      this.books = data;
+    });
   }
 }

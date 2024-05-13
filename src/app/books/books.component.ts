@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Books } from '../books';
 import { BookService } from '../books.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -10,61 +10,38 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BooksComponent implements OnInit {
   books: Books[] = [];
-  data: any;
   id: any;
   searchText: string = '';
 
-
   filteredData: Books[] = this.books;
 
-  
-  constructor(
-    private bookservice: BookService,
-    private aroute: ActivatedRoute
-  ) { }
-  
+  constructor(private bookservice: BookService, private route: Router) {}
 
   ngOnInit(): void {
-    this.id = this.aroute.snapshot.params['id'];
     this.getBookList();
-    //
+
     this.books = [
       {
-        bookid: 1,
-        bookname: 'C++',
-        author: 'c++',
-      },
-    ];
-    this.filteredData = this.books;
+        "bookid":1,
+        "booktitle": "Pyhton",
+        "author":"Python"
+      }
+    ]
   }
 
-  private getBookList() {
-    try {
-      this.bookservice.getBookList().subscribe((data) => {
-        this.books = data;
-      });
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
-  }
-  delete(id: number) {
-    alert('book removed successfully');
-    this.bookservice.deleteBook(id).subscribe((data) => {
-      console.log(this.data);
-      this.getBookList();
+  getBookList() {
+    this.bookservice.getBookListSource().subscribe((data) => {
+      this.books = data;
     });
+  }
 
+  add() {
     throw new Error('Method not implemented.');
   }
-
   search() {
-    try {
-      this.filteredData = this.books.filter((item) =>
-        item.bookname.toLowerCase().includes(this.searchText.toLowerCase())
-      );
-      alert('seraching your books');
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+    throw new Error('Method not implemented.');
+  }
+  delete() {
+    throw new Error('Method not implemented.');
   }
 }

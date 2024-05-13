@@ -4,28 +4,29 @@
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        ngModel="searchText">
                     <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
                 </form>
             </div>
         </nav>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped text-center">
         <thead>
             <tr>
                 <th>Book Id</th>
-                <th>Book Name</th>
+                <th>Book Title</th>
                 <th>Book Author</th>
                 <th class="opertion">Operations</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books |filter:searchText">
+            <tr *ngFor="let book of books" class="text-center">
                 <td>{{book.bookid}}</td>
-                <td>{{book.bookname}}</td>
                 <td>{{book.author}}</td>
-                <td class="opertion">
-                    <button class="btn btn-danger" (click)="delete(book.bookid)">remove</button>
+                <td>{{book.booktitle}}</td>
+                <td class="opertion"><button class="btn btn-danger m-2" (click)="delete()">Remove</button>
+                    <button class="btn btn-danger m-2" (click)="add()">Add</button>
                 </td>
             </tr>
         </tbody>

@@ -1,5 +1,5 @@
 export class Books {
-  bookid!: number;
-  bookname!: String;
-  author!: String;
+  bookid: number = 0;
+  booktitle: String = '';
+  author: String = '';
 }

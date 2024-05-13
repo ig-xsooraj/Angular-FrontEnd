@@ -2,19 +2,25 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Book Id</th>
-                <th>Book Name</th>
-                <th>Date of Dues</th>
-                <th class="totalFine">Total Fine</th>
+                <!-- <th>User Id</th>
+                <th>Serial Number</th> -->
+                <th>CheckOutId</th>
+                <th>Checkout Date</th>
+                <th>Duedate</th>
+                <th>ReturnDate</th>
+                <th>Total Fine</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i of checkout">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="opertion">
-                </td>
+            <tr *ngFor=" let i of check ">
+                <!-- <td>{{i.userid}}<td>
+                <td>{{i.serial_number}}<td> -->
+                <td>{{i.checkoutId}}<td>
+                <td>{{i.checkoutDate}}<td>
+                <td>{{i.duedate}}</td>
+                <td>{{i.returnDate }}</td>
+                <td>{{i.fineAmount}}</td>
+
             </tr>
         </tbody>
     </table>

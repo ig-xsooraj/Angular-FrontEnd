@@ -8,35 +8,27 @@ import { UserServiceService } from '../user-service.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
+  
 export class LoginComponent implements OnInit {
   user: UserProfile = new UserProfile();
+  username: string = '';
+  password: string = '';
 
   constructor(
     private router: Router,
     private userservice: UserServiceService
   ) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
-  saveUser() {
-    // this.userservice.createUser(this.user).subscribe(
-    //   (data) => {
-    //     console.log(data)
-    //     this.goToEmployeeList();
-    //   },
-    //   error => console.log(error));
 
-    this.router.navigate(['bookslist']);
+  
+  login() {
+      alert("login successfull");
+      this.goToEmployeeList();
+
   }
 
   goToEmployeeList() {
-    this.router.navigate(['bookslist']);
-  }
-
-  onSubmit() {
-    console.log(this.user);
-
-    this.saveUser();
     this.router.navigate(['bookslist']);
   }
 }
